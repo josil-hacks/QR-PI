@@ -1,7 +1,10 @@
 from fastapi import FastAPI
 
-app = FastAPI()
+from qr_pi.api.routes import router
 
-@app.get("/health")
-def health():
-    return {"status": "ok"}
+app = FastAPI(
+    title="QR Generator API",
+    version="0.1.0",
+)
+
+app.include_router(router)
